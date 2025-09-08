@@ -23,3 +23,6 @@ rootProject.name = "AndroidLab"
 include(":app")
 include(":ch12_material")
 include(":ch13_activity")
+include(":ch14_broad")
+include(":ch15_outer")
+include(":ch15_service")

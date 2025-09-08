@@ -13,6 +13,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/ch12_material" />
             <option value="$PROJECT_DIR$/ch13_activity" />
+            <option value="$PROJECT_DIR$/ch14_broad" />
+            <option value="$PROJECT_DIR$/ch15_outer" />
+            <option value="$PROJECT_DIR$/ch15_service" />
           </set>
         </option>
       </GradleProjectSettings>
