@@ -10,6 +10,8 @@ android {
         aidl = true
     }
 
+    buildToolsVersion = "36.0.0"
+
 
     namespace = "com.example.ch15_service"
     compileSdk = 36
