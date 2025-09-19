@@ -23,6 +23,9 @@
       <SelectionState runConfigName="ch15_service">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="ex_thread_n_corutine">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
