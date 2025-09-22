@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_marginLeft="80dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/startSrv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="serviceStart"
+            android:text="서비스시작" />
+
+        <Button
+            android:layout_centerInParent="true"
+            android:layout_alignLeft="@+id/unBindSrv"
+            android:id="@+id/stopSrv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="serviceStop"
+            android:text="서비스종료" />
+
+        <Button
+
+            android:layout_alignLeft="@+id/startSrv"
+            android:layout_below="@+id/startSrv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="서비스 BINd"
+            android:id="@+id/bindSrv"
+            android:onClick="serviceBind" />
+
+        <Button
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/bindSrv"
+            android:layout_toRightOf="@+id/bindSrv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="서비스 unBind"
+            android:id="@+id/unBindSrv"
+            android:onClick="serviceUnbind" />
+
+        <Button
+            android:layout_below="@+id/unBindSrv"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="서비스함수호출"
+            android:id="@+id/buttonCall"
+            android:onClick="callServiceFunction" />
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

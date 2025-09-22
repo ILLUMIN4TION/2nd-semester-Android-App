@@ -14,9 +14,12 @@
             <option value="$PROJECT_DIR$/ch12_material" />
             <option value="$PROJECT_DIR$/ch13_activity" />
             <option value="$PROJECT_DIR$/ch14_broad" />
+            <option value="$PROJECT_DIR$/ch15_corutine" />
             <option value="$PROJECT_DIR$/ch15_outer" />
             <option value="$PROJECT_DIR$/ch15_service" />
             <option value="$PROJECT_DIR$/ex_thread_n_corutine" />
+            <option value="$PROJECT_DIR$/foregroundservice" />
+            <option value="$PROJECT_DIR$/servicetest2" />
           </set>
         </option>
       </GradleProjectSettings>
