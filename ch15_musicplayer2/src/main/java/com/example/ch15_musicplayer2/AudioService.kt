@@ -12,14 +12,29 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 
-class Foreground : Service() {
+class AudioService : Service() {
 
     val CHANNEL_ID = "ForegroundChannel"
     lateinit var player: MediaPlayer
 
+    val binder = MyBindService()
+
+    inner class MyBindService : Binder(){
+        fun getService(): AudioService{
+            return this@AudioService
+        }
+    }
+    fun getMaxDuration(): Int {
+        return if (::player.isInitialized && player.isPlaying) {
+            player.duration
+        } else {
+            0
+        }
+    }
+
 
     override fun onBind(intent: Intent): IBinder {
-        return Binder()
+        return binder
     }
 
     override fun onCreate() {
@@ -57,7 +72,7 @@ class Foreground : Service() {
 
 
         if(!player.isPlaying){
-            player = MediaPlayer.create(this@Foreground, com.example.ch15_musicplayer2.R.raw.music)
+            player = MediaPlayer.create(this@AudioService, com.example.ch15_musicplayer2.R.raw.music)
             try{
                 player.start()
             }catch (e: Exception){
