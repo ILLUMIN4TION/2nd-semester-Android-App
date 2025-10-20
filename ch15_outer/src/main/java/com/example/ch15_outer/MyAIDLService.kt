@@ -15,8 +15,9 @@ class MyAIDLService : Service() {
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         player.release()
+        super.onDestroy()
+
     }
 
     override fun onBind(intent: Intent): IBinder {

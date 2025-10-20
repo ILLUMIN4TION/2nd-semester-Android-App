@@ -5,7 +5,14 @@ import android.content.Intent
 import android.os.IBinder
 //
 //Todo 서비스 클래스 구현
-//class MyAudioService : Service() {
-//
-//
-//}
+class MyAudioService : Service() {
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+
+
+
+        return super.onStartCommand(intent, flags, startId)
+    }
+
+
+}

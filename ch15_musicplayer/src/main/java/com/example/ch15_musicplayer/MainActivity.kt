@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.foregroundPlay.setOnClickListener {
-            //Todo 서비스 실행로직 구현
+
         }
 
         binding.foregroundStop.setOnClickListener {
