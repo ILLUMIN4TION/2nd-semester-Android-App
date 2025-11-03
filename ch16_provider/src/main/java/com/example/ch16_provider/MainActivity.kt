@@ -29,9 +29,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //gallery request launcher..................
+
+        //갤러리 앱에서 돌아왔을 때 무엇을 선택했나?
         val requestLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ){
+            //미디어 저장소에서 가져온 값에 대한 트라이문
             try{
                 val calRatio = calculateInSampleSize(
                     it.data!!.data!!,
@@ -60,12 +63,22 @@ class MainActivity : AppCompatActivity() {
         binding.galleryButton.setOnClickListener {
             //gallery app........................
 
+            //ACTION_PICK이라는 액션을 액션에 지정 (무언가를 선택하겠다)
             val intent = Intent(Intent.ACTION_PICK,
+
+                //어떤 리소스에서 PICK 할 것인가?  저장소중 이미지-미디어 카테고리를 가져올게
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             intent.type = "image/*"
+
+            //다른 화면이 아닌 다른 앱에서 결과물을 받겠다 .start가 아닌 launch
             requestLauncher.launch(intent)
             
         }
+
+
+
+
+
 
         //camera request launcher.................
 
@@ -108,11 +121,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //우리가 직접 만든 메서드,
     private fun calculateInSampleSize(fileUri: Uri, reqWidth: Int, reqHeight: Int): Int {
         val options = BitmapFactory.Options()
-        options.inJustDecodeBounds = true
+        options.inJustDecodeBounds = true //실제 이미지를 가져오지x 이미지의 정보만 가지고 옴
         try {
-            var inputStream = contentResolver.openInputStream(fileUri)
+            var inputStream = contentResolver.openInputStream(fileUri) //프로바이더 제공하는 것 contentResolver가 받음 ** <-
 
             //inJustDecodeBounds 값을 true 로 설정한 상태에서 decodeXXX() 를 호출.
             //로딩 하고자 하는 이미지의 각종 정보가 options 에 설정 된다.
