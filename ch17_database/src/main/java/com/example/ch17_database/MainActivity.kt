@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     var datas: MutableList<String>? = null
+    var datasNum: MutableList<String>? = null
     lateinit var adapter: MyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         datas= mutableListOf<String>()
+        datasNum = mutableListOf<String>()
 
         //add......................
 
@@ -47,22 +49,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         datas = mutableListOf<String>()
+        datasNum = mutableListOf()
 
         val db = DBHelper(this).readableDatabase
         val cursor = db.rawQuery("select * from TODO_TB", null)
         cursor.run {
             while (moveToNext()) {
+                datasNum?.add(cursor.getString(0))
                 datas?.add(cursor.getString(1))
             }
         }
         db.close()
 
 
-
-
         val layoutManager = LinearLayoutManager(this)
         binding.mainRecyclerView.layoutManager=layoutManager
-        adapter=MyAdapter(datas)
+        adapter=MyAdapter(datas, datasNum, this)
         binding.mainRecyclerView.adapter = adapter
         binding.mainRecyclerView.addItemDecoration(
             DividerItemDecoration(this, LinearLayoutManager.VERTICAL)

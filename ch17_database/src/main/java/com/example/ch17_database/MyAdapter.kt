@@ -13,7 +13,9 @@ import com.example.ch17_database.databinding.ItemRecyclerviewBinding
 
 class MyViewHolder(val binding: ItemRecyclerviewBinding): RecyclerView.ViewHolder(binding.root)
 
-class MyAdapter(val datas: MutableList<String>?): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class MyAdapter(val datas: MutableList<String>?, val dataNum: MutableList<String>?, context: Context): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+
+    val db = DBHelper(context).readableDatabase
 
     override fun getItemCount(): Int{
         return datas?.size ?: 0
@@ -25,5 +27,14 @@ class MyAdapter(val datas: MutableList<String>?): RecyclerView.Adapter<RecyclerV
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding=(holder as MyViewHolder).binding
         binding.itemData.text= datas!![position]
+        binding.itemNum.text= dataNum!![position]
+
+
+        binding.itemDelete.setOnClickListener {
+            db.execSQL("delete from TODO_TB where todo = ?", arrayOf(datas[position]))
+            datas.removeAt(position)
+            dataNum.removeAt(position)
+            notifyDataSetChanged()
+        }
     }
 }

@@ -10,6 +10,9 @@
         <SwitchPreferenceCompat
             app:key="noti_sound"
             app:title="소리 알림"/>
+        <SwitchPreferenceCompat
+            app:key="noti_push"
+            app:title="푸시 알람 받기"/>
     </PreferenceCategory>
     <PreferenceCategory
         app:key="etc"
@@ -22,6 +25,21 @@
             android:entryValues="@array/my_color_values"
             app:key="color"
             app:title="색상선택"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:key="dataNSync"
+        app:title="데이터 및 동기화">
+        <SwitchPreferenceCompat
+            app:key="auto_sync"
+            app:title="자동 동기화"/>
+        <ListPreference
+            android:entries="@array/syncTimeGap"
+            android:entryValues="@array/syncTimeGap_values"
+            app:key="syncTime"
+            app:title="동기화 주기"
+            android:dependency="auto_sync"/>
+
+
     </PreferenceCategory>
 
 </PreferenceScreen>
